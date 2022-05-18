@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intellezy</title>
+    <link rel="stylesheet" href="dist/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body x-data="{showModal : false}" class="bg-white">
+    <header x-data="{showNav: false}" class="border-b border-gray2">
+        <nav class="flex items-center p-4 md:py-0 md:px-8">
+            <button @click="showNav = !showNav" class="mr-3 md:hidden"><img class="w-4 h-4 fill-black injectable"
+                    src="assets/icons/Menu.svg" alt=""></button>
+            <a href="/"><img src="assets/icons/logo.svg" alt="logo"></a>
+            <div class="md:flex grow hidden">
+                <ul class="flex items-center list-none ml-[88px] gap-x-10">
+                    <li><a class="py-8 text-gray font-medium text-sm inline-block" href="#">Dashboard</a></li>
+                    <li><a class="relative py-8 text-gray font-medium text-sm inline-block after:content-[''] after:absolute after:bottom-0 after:w-6 after:pt-0.5 after:bg-black after:left-0"
+                            href="#">Courses</a></li>
+                    <li><a class="py-8 text-gray font-medium text-sm inline-block" href="#">LiveClasses</a></li>
+                </ul>
+                <div class="flex ml-auto items-center divide-x-2 divide-gray2 gap-x-6">
+                    <form>
+                        <div class="flex">
+                            <div class="p-3 bg-gray2 rounded-tl-md rounded-bl-md flex items-center"><img
+                                    class="injectable w-4 h-4" src="assets/icons/Search.svg" alt=""></div>
+                            <input type="text" placeholder="Search"
+                                class="bg-gray2 p-3 text-sm text-gray border-l border-white rounded-tr-md rounded-br-md focus-visible:outline-none">
+                        </div>
+                    </form>
+                    <div class="pl-6">
+                        <a class="" href="#"><img src="assets/icons/Support.svg" alt=""></a>
+                    </div>
+                    <ul class="flex items-center gap-x-6 justify-center pl-6">
+                        <li
+                            class="relative after:content-[''] after:absolute after:rounded-full after:w-2 after:h-2 after:-top-1 after:-right-1 after:bg-primary-default">
+                            <a href="#"><img class="injectable" src="assets/icons/Message.svg" alt=""></a>
+                        </li>
+                        <li><a href="#"><img class="injectable" src="assets/icons/Notification.svg" alt=""></a></li>
+                    </ul>
+                    <div @click.outside="open=false" x-data="{ open: false}" class="pl-6 relative">
+                        <button @click="open = ! open"
+                            class="flex items-center justify-center w-10 h-10 rounded-full border border-[#EBF2DB] text-sm font-semibold text-primary-default bg-primary-light">MO</button>
+                        <div x-show="open" x-transition
+                            class="absolute top-12 right-0 bg-white border border-gray2 rounded-xl shadow-[0_24px_72px_0px__rgba(1,2,4,0.08)] p-4">
+                            <div class="bg-primary-light border border-[#EBF2DB] rounded-lg p-4 mb-6">
+                                <p class="mb-2 font-medium text-sm text-black">William Wallace</p>
+                                <p class="text-gray text-xs">wwallace@intellezy.com</p>
+                            </div>
+                            <ul class="flex flex-col gap-y-6">
+                                <li class="group"><button
+                                        class="text-sm text-black font-medium group-hover:text-primary-default"><img
+                                            class="inline-block injectable mr-3 group-hover:stroke-primary-default"
+                                            src="assets/icons/Admin.svg" alt="">Administrator view</button></li>
+                                <li class="group"><button @click="showModal = true; open = false"
+                                        class="text-sm text-black font-medium group-hover:text-primary-default"><img
+                                            class="inline-block injectable mr-3 group-hover:stroke-primary-default"
+                                            src="assets/icons/Settings.svg" alt="">Edit information</button></li>
+                                <li class="group"><button
+                                        class="text-sm text-black font-medium group-hover:text-primary-default"><img
+                                            class="inline-block injectable mr-3 group-hover:stroke-primary-default"
+                                            src="assets/icons/Logout.svg" alt="">Log out</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center ml-auto gap-x-4 md:hidden">
+                <a class="" href="#"><img src="assets/icons/Support.svg" alt=""></a>
+                <a class="relative after:content-[''] after:absolute after:rounded-full after:w-2 after:h-2 after:-top-1 after:-right-1 after:bg-primary-default"
+                    href="#"><img class="injectable" src="assets/icons/Message.svg" alt=""></a>
+                <a href="#"><img class="injectable" src="assets/icons/Notification.svg" alt=""></a>
+                <div x-data="{ open: false}" class="relative">
+                    <button @click="open = ! open"
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-[#EBF2DB] text-sm font-semibold text-primary-default bg-primary-light">MO</button>
+                    <div x-show="open" x-transition
+                        class="absolute top-12 right-0 bg-white border border-gray2 rounded-xl shadow-[0_24px_72px_0px__rgba(1,2,4,0.08)] p-4 z-10">
+                        <div class="bg-primary-light border border-[#EBF2DB] rounded-lg p-4 mb-6">
+                            <p class="mb-2 font-medium text-sm text-black">William Wallace</p>
+                            <p class="text-gray text-xs">wwallace@intellezy.com</p>
+                        </div>
+                        <ul class="flex flex-col gap-y-6">
+                            <li class="group"><button
+                                    class="text-sm text-black font-medium group-hover:text-primary-default"><img
+                                        class="inline-block injectable mr-3 group-hover:stroke-primary-default"
+                                        src="assets/icons/Admin.svg" alt="">Administrator view</button></li>
+                            <li class="group"><button @click="showModal = true; open=false"
+                                    class="text-sm text-black font-medium group-hover:text-primary-default"><img
+                                        class="inline-block injectable mr-3 group-hover:stroke-primary-default"
+                                        src="assets/icons/Settings.svg" alt="">Edit information</button></li>
+                            <li class="group"><button
+                                    class="text-sm text-black font-medium group-hover:text-primary-default"><img
+                                        class="inline-block injectable mr-3 group-hover:stroke-primary-default"
+                                        src="assets/icons/Logout.svg" alt="">Log out</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div x-show="showNav" x-collapse class="p-4 bg-gray2">
+            <ul class="flex flex-col list-none">
+                <li><a class="py-2 text-gray font-medium text-sm inline-block" href="#">Dashboard</a></li>
+                <li><a class="relative py-2 font-medium text-sm inline-block text-black" href="#">Courses</a></li>
+                <li><a class="py-2 text-gray font-medium text-sm inline-block" href="#">LiveClasses</a></li>
+            </ul>
+            <div class="flex">
+                <div class="py-2 px-4 bg-white rounded-tl-md rounded-bl-md flex items-center"><img
+                        class="injectable w-4 h-4" src="assets/icons/Search.svg" alt=""></div>
+                <input type="text" placeholder="Search"
+                    class="bg-white w-full py-2 px-4 text-sm text-gray border-l border-gray-2 rounded-tr-md rounded-br-md focus-visible:outline-none">
+            </div>
+        </div>
+    </header>
+    <main>
+        <template x-teleport="body">
+            <div x-show="showModal"
+                class="absolute inset-0 bg-black bg-opacity-60 min-h-screen py-12 md:py-0 md:grid md:place-items-center">
+                <div @click.outside="showModal = false"
+                    class="bg-white p-6 min-h-screen md:rounded-xl md:w-1/2 md:mx-auto md:min-h-fit">
+                    <div class="flex items-center justify-between mb-6">
+                        <h4 class="text-lg font-semibold leading-6 text-black">Edit Information</h4>
+                        <button @click="showModal = false"><img src="assets/icons/Close.svg" alt=""></button>
+                    </div>
+                    <form class="min-h-screen flex flex-col justify-between md:block md:min-h-fit">
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label class="text-black font-medium text-sm leading-6 mb-2" for="first_name">First
+                                    Name</label>
+                                <input
+                                    class="rounded-lg border-[1.5px] w-full p-3 border-gray2 focus-visible:outline-none text-sm leading-6"
+                                    type="text" name="first_name" id="first_name" placeholder="William">
+                            </div>
+                            <div>
+                                <label class="text-black font-medium text-sm leading-6 mb-2" for="last_name">Last
+                                    Name</label>
+                                <input
+                                    class="rounded-lg border-[1.5px] w-full p-3 border-gray2 focus-visible:outline-none text-sm leading-6"
+                                    type="text" name="last_name" id="last_name" placeholder="Wallace">
+                            </div>
+                            <div>
+                                <label class="text-black font-medium text-sm leading-6 mb-2" for="email">Email
+                                    address</label>
+                                <input
+                                    class="rounded-lg border-[1.5px] w-full p-3 border-gray2 focus-visible:outline-none text-sm leading-6"
+                                    type="email" name="email" id="email" placeholder="wwallace@intellezy.com">
+                            </div>
+                            <div>
+                                <label class="text-black font-medium text-sm leading-6 mb-2" for="time_zone">Time
+                                    zone</label>
+                                <select
+                                    class="rounded-lg border-[1.5px] w-full p-3 bg-white text-gray border-gray2 focus-visible:outline-none text-sm leading-6 block"
+                                    name="time_zone" id="time_zone">
+                                    <option class="text-black" value="" disabled selected>Select Option</option>
+                                    <option class="text-black" value="est">Eastern Standard Time (E...</option>
+                                </select>
+                            </div>
+                            <div>
+                                <a href="#" class="font-medium text-sm text-purple underline">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto md:mt-0">
+                            <button @click="showModal = false" type="button"
+                                class="bg-gray2 py-2 px-6 rounded-lg text-black font-medium text-sm">Cancel</button>
+                            <button @click="showModal = false" type="button"
+                                class="bg-primary-default py-2 px-6 rounded-lg text-white font-medium text-sm"><img
+                                    class="inline-block mr-2 align-middle" src="assets/icons/Check.svg" alt=""> Save
+                                Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </template>
+    </main>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
